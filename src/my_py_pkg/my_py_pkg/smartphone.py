@@ -8,10 +8,11 @@ from example_interfaces.msg import String
 class SmartphoneNode(Node):
     def __init__(self):
         super().__init__("smartphone")
+        self.get_logger().info("Smartphone has been started.")
         self.subscriber = self.create_subscription(
             String, "robot_news", self.callback_robot_news, 10
         )
-        self.get_logger().info("Smartphone has been started.")
+        
 
     def callback_robot_news(self, msg):
         self.get_logger().info(msg.data)

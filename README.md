@@ -2,7 +2,7 @@
 
 
 
-#### Environment Setup
+### Environment Setup
 
 * Install Ubuntu 22.04
 * Install ROS2 Humble
@@ -10,7 +10,7 @@
 
 
 
-#### Workspace and Package
+### Workspace and Package
 
 * **Install the ROS2 build tool - Colcon**
   * `sudo apt install python3-colcon-common-extensions`
@@ -19,18 +19,21 @@
 * **Create a ROS2 workspace**
   * `mkdir <workspace>`
   * `mkdir src`
+  * `colcon build`
   * Add `source <workspace>/install/setup.bash` to `~/.bashrc`
-
+  
 * **Create a Python Package**
+  * `cd src`
   * `ros2 pkg create <package> --build-type ament_python --dependencies rclpy`
   * Add dependencies in `package.xml`
   * `colcon build`
+  
 
 
 
-#### ROS2 Nodes
+### ROS2 Nodes
 
-Nodes are fundamental units of computation that perform various tasks within a robotic system.
+**Nodes are fundamental units of computation that perform various tasks within a robotic system.**
 
 * Subprograms in the application, responsible for only one thing
 * Combined into a graph
@@ -38,12 +41,12 @@ Nodes are fundamental units of computation that perform various tasks within a r
 * Reduce code complexity
 * Fault tolerance
 
-**Create a node**
+#### Create a node
 
 * `cd ~/<workspace path>/src/<package>/<package>`
 * `touch <node_script>.py`
 
-**Configure the node**
+#### Configure the node
 
 * Enter into `setup.py`
 * In `console_scripts`, add `<node> = <package>.<node_script>:main`
@@ -56,7 +59,7 @@ def main(args=None):
     rclpy.shutdown()    # Must be called at the end
 ```
 
-**Run the node**
+#### Run the node
 
 * Executable Python script
   * `cd ~/<workspace path>/src/<package>/<package>`
@@ -69,7 +72,7 @@ def main(args=None):
   * Remember to source the workspace
   * `ros2 run <package> <node>`
 
-##### Node Template
+#### Node Template
 
 ```python
 #!/usr/bin/env python3
@@ -96,9 +99,9 @@ if __name__ == "__main__":
 
 
 
-#### ROS2 Tools
+### ROS2 Tools
 
-##### ROS2 CLI
+#### ROS2 CLI
 
 * List all nodes
   * `ros2 node list`
@@ -106,8 +109,11 @@ if __name__ == "__main__":
   * `ros2 node info <node>`
 * Remap a node
   * `ros2 run <package> <node> --ros-args -r __node:=<new_node>`
+* Show interface
+  * `ros2 interface show <interface>`
 
-##### Colcon
+
+#### Colcon
 
 * Build selected packages
   * `colcon build --packages-select <package>`
@@ -118,30 +124,27 @@ if __name__ == "__main__":
   * `colcon build --cmake-clean-first`
 * Possible [solutions](https://answers.ros.org/question/396439/setuptoolsdeprecationwarning-setuppy-install-is-deprecated-use-build-and-pip-and-other-standards-based-tools/#400052) to the deprecation warning of `setup.py`
 
-##### RQt
+#### RQt
 
 * `rqt_graph`
 
 
 
-#### ROS2 Topics
+### ROS2 Topics
 
-A topic is a named bus over which nodes exchange messages
+**A topic is a named bus over which nodes exchange messages.**
 
 * Unidirectional data stream
 * Anonymous
 * A topic has a message type
 * A node can have many publishers/subscribers for many topics
 
-Example message types for topics
+**Example message types for topics**
 
 * `example_interfaces.msg`
-
 * `geometry_msgs.msg`
 
-* Message type: `ros2 interface show <msg>`
-
-CLI
+**CLI**
 
 * List all topics: `ros2 topic list`
 * Info of a topic: `ros2 topic info <topic>`
@@ -155,4 +158,19 @@ CLI
 
 #### ROS2 Services
 
+**A ROS2 Service is a client/server system.**
+
+* Synchronous or asynchronous
+* One message type for Request, one message type for Response
+* A service server can only exist once, but can have many clients
+
+**CLI**
+
+* List all services: `ros2 service list`
+* Info of a service: `ros2 service info <service>`
+* Type of a service: `ros2 service type <service>`
+* Call a service: `ros2 service call <service> <service_type> <request_data>`
+* Remap a service: `ros2 run <package> <node> --ros-args -r <service>:=<new_service>`
+
+**Use RQt plugins to call the service**
 
