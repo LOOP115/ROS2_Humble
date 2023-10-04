@@ -1,3 +1,7 @@
-log
 .vscode
 *.pyc
+
+# Installation files
+build
+install
+log

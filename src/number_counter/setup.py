@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'my_py_pkg'
+package_name = 'number_counter'
 
 setup(
     name=package_name,
@@ -14,18 +14,16 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='loop',
-    maintainer_email='loop@todo.todo',
+    maintainer_email='54584749+LOOP115@users.noreply.github.com',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "py_node = my_py_pkg.my_first_node:main",
-            "robot_news_station = my_py_pkg.robot_news_station:main",
-            "smartphone = my_py_pkg.smartphone:main",
-            "add_two_ints_server = my_py_pkg.add_two_ints_server:main",
-            "add_two_ints_client = my_py_pkg.add_two_ints_client:main",
-            "hw_status_publisher = my_py_pkg.hw_status_publisher:main"
+            "number_publisher = number_counter.number_publisher:main",
+            "number_counter = number_counter.number_counter:main",
+            "number_subscriber = number_counter.number_subscriber:main",
+            "reset_number_counter = number_counter.reset_number_counter:main"
         ],
     },
 )
