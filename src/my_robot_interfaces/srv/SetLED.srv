@@ -1,0 +1,5 @@
+int8 led_index
+int8 battery_status
+---
+LEDState led_state
+string message

@@ -10,10 +10,10 @@ class AddTwoIntsClientNode(Node):
     def __init__(self):
         super().__init__("add_two_ints_client")
         self.get_logger().info("Add Two Ints Client has started!")
-        self.call_add_two_ints_server(1, 5)
-        self.call_add_two_ints_server(2, 6)
+        self.call_add_two_ints(1, 5)
+        self.call_add_two_ints(2, 6)
 
-    def call_add_two_ints_server(self, a, b):
+    def call_add_two_ints(self, a, b):
         client = self.create_client(AddTwoInts, "add_two_ints")
         while not client.wait_for_service(1.0):
             self.get_logger().warn("Waiting for Server Add Two Ints ...")
