@@ -104,7 +104,7 @@ def main(args=None):
 * Info of a node: `ros2 node info <node>`
 * Remap a node: `ros2 run <pkg> <node> --ros-args -r __node:=<new_node>`
 
-#### Node Template
+#### [Template](src/my_py_pkg/my_py_pkg/template_node.py)
 
 ```python
 #!/usr/bin/env python3
@@ -200,7 +200,7 @@ if __name__ == "__main__":
 * `ros2 pkg create <interface_pkg>`
 * `cd <interface_pkg>`
 * `rm -rf include/ src/`
-* Add the following lines into `package.xml`
+* Add the following lines into [`package.xml`](src/my_robot_interfaces/package.xml)
 
 ```xml
   <build_depend>rosidl_default_generators</build_depend>
@@ -208,7 +208,7 @@ if __name__ == "__main__":
   <member_of_group>rosidl_interface_packages</member_of_group>
 ```
 
-* Add the following line into `CMakeLists.txt  # find dependencies`
+* Add the following line into [`CMakeLists.txt`](src/my_robot_interfaces/CMakeLists.txt)
 
 ```cmake
 find_package(rosidl_default_generators REQUIRED)
@@ -223,7 +223,7 @@ find_package(rosidl_default_generators REQUIRED)
 * `touch <msg>.msg` or `touch <srv>.srv`
   * Uppercase first letter
   * Camel case
-* Add the following lines into `CMakeLists.txt  # find dependencies`
+* Add the following lines into [`CMakeLists.txt`](src/my_robot_interfaces/CMakeLists.txt)
 
 ```cmake
 find_package(rosidl_default_generators REQUIRED)
@@ -255,4 +255,48 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 * List of parameters: `ros2 param list`
 * Get parameter value: `ros2 param get <node> <param>`
 * Declare the parameter: `ros2 run <pkg> <node> --ros-args -p <param>:=<value>`
+
+
+
+### ROS2 Launch Files
+
+#### Create a package for launch files
+
+* `cd <workspace>/src`
+* `ros2 pkg create <robot>_bringup`
+* `rm -rf include/ src/`
+* `mkdir launch`
+* Add the following lines into [`CMakeLists.txt`](src/my_robot_bringup/CMakeLists.txt)
+
+```cmake
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}
+)
+```
+
+#### Create a launch file
+
+* `cd launch`
+* `touch <app>.launch.py`
+* `chmod +x <app>.launch.py`
+* Template
+
+```python
+from launch import LaunchDescription
+
+
+def generate_launch_description():
+    ld = LaunchDescription()
+
+    return ld
+```
+
+* Add depended packages in [`package.xml`](src/my_robot_bringup/package.xml)
+
+```xml
+<exec_depend>pkg</exec_depend>
+```
+
+* Launch: `ros2 launch <robot>_bringup <app>.launch.py`
 

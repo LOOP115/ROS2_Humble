@@ -11,7 +11,7 @@ class RobotNewsStationNode(Node):
         self.declare_parameter("name", "MARK")
         self.robot_name = self.get_parameter("name").value
         self.publisher = self.create_publisher(String, "robot_news", 10)
-        self.timer = self.create_timer(0.5, self.publish_news)
+        self.timer = self.create_timer(2, self.publish_news)
         self.get_logger().info("Robot News Station has been started!")
 
     def publish_news(self):
