@@ -3,7 +3,7 @@
 * Simple node
   * `ros2 run my_py_pkg py_node`
 * Publish / Subscribe
-  * `ros2 run my_py_pkg robot_news_station`
+  * `ros2 run my_py_pkg robot_news_station --ros-args -p name:="<name>"`
   * `ros2 run my_py_pkg smartphone`
 * Server / Client
   * `ros2 run my_py_pkg add_two_ints_server`

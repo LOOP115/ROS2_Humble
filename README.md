@@ -28,7 +28,7 @@
 #### Create a Python Package
 
 * `cd src`
-* `ros2 pkg create <package> --build-type ament_python --dependencies rclpy`
+* `ros2 pkg create <pkg> --build-type ament_python --dependencies rclpy`
 * Add dependencies in `package.xml`
 * `colcon build`
 
@@ -39,7 +39,7 @@
 #### Colcon
 
 * Build selected packages
-  * `colcon build --packages-select <package>`
+  * `colcon build --packages-select <pkg>`
 * Enable symlink install
   * `colcon build --symlink-install`
   * When you use the `--symlink-install` flag, the built packages are installed using symbolic links (symlinks). This means that instead of copying the package files to the install directory, symlinks are created. Symlinks are pointers to the original files, so changes you make to the source files are immediately reflected in the installed packages without the need to rebuild and reinstall.
@@ -69,13 +69,14 @@
 
 #### Create a node
 
-* `cd ~/<workspace path>/src/<package>/<package>`
-* `touch <node_script>.py`
+* `cd ~/<workspace>/src/<pke>/<pkg>`
+* `touch <node>.py`
+* `chmod +x <node>.py`
 
 #### Configure the node
 
 * Enter into `setup.py`
-* In `console_scripts`, add `<node> = <package>.<node_script>:main`
+* In `console_scripts`, add `<node> = <pkg>.<node>:main`
 
 ```python
 def main(args=None):
@@ -88,21 +89,20 @@ def main(args=None):
 #### 3 ways to run the node
 
 * Executable Python script
-  * `cd ~/<workspace path>/src/<package>/<package>`
-  * `chmod +x <node_scipt>.py`
-  * `./<node_script>.py`
+  * `cd ~/<workspace>/src/<pkg>/<pkg>`
+  * `./<node>.py`
 * From the installed file
-  * `cd ~/<workspace path>/install/<package>/lib/<package>`
+  * `cd ~/<workspace>/install/<pkg>/lib/<pkg>`
   * `./<node>`
-* ROS2 CLI
+* **ROS2 CLI**
   * Remember to source the workspace
-  * `ros2 run <package> <node>`
+  * `ros2 run <pkg> <node>`
 
 #### Node CLI
 
 * List all nodes: `ros2 node list`
 * Info of a node: `ros2 node info <node>`
-* Remap a node: `ros2 run <package> <node> --ros-args -r __node:=<new_node>`
+* Remap a node: `ros2 run <pkg> <node> --ros-args -r __node:=<new_node>`
 
 #### Node Template
 
@@ -155,7 +155,7 @@ if __name__ == "__main__":
 * Subscribe from the terminal: `ros2 topic echo <topic>`
 * Frequency: `ros2 topic hz <topic>`
 * Bandwidth: `ros2 topic bw <topic>`
-* Remap a topic: `ros2 run <package> <node> --ros-args -r <topic>:=<new_topic>`
+* Remap a topic: `ros2 run <pkg> <node> --ros-args -r <topic>:=<new_topic>`
 
 
 
@@ -180,7 +180,7 @@ if __name__ == "__main__":
 * Info of a service: `ros2 service info <service>`
 * Type of a service: `ros2 service type <service>`
 * Call a service: `ros2 service call <service> <service_type> <request_data>`
-* Remap a service: `ros2 run <package> <node> --ros-args -r <service>:=<new_service>`
+* Remap a service: `ros2 run <pkg> <node> --ros-args -r <service>:=<new_service>`
 * Use RQt plugins to call the service
 
 
@@ -197,8 +197,8 @@ if __name__ == "__main__":
 #### Create a package for the custom interface
 
 * `cd <workspace>/src`
-* `ros2 pkg create <interface_package>`
-* `cd <interface_package>`
+* `ros2 pkg create <interface_pkg>`
+* `cd <interface_pkg>`
 * `rm -rf include/ src/`
 * Add the following lines into `package.xml`
 
@@ -216,7 +216,7 @@ find_package(rosidl_default_generators REQUIRED)
 
 #### Create custom `msg` / `srv`
 
-* In `<interface_package>`: 
+* In `<interface_pkg>`: 
   * `mkdir <msg_dir> && cd <msg_dir>`
   * `mkdir <srv_dir> && cd <srv_dir>`
 
@@ -239,5 +239,20 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 * List of interfaces: `ros2 interface list`
 * Show info of an interface: `ros2 interface show <interface>`
-* Show interfaces in the package: `ros2 interface package <package>`
+* Show interfaces in the package: `ros2 interface package <pkg>`
+
+
+
+### ROS2 Parameters
+
+#### Definition
+
+* Settings for your nodes, value set at run time
+* A Parameter is specific to a node
+
+#### CLI
+
+* List of parameters: `ros2 param list`
+* Get parameter value: `ros2 param get <node> <param>`
+* Declare the parameter: `ros2 run <pkg> <node> --ros-args -p <param>:=<value>`
 

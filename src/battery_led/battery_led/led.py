@@ -10,7 +10,8 @@ class LEDNode(Node):
     def __init__(self):
         super().__init__("led")
         self.get_logger().info("LED has been started!")
-        self.led_state = [0, 0, 0]
+        self.declare_parameter("led_state", [0, 0, 0])
+        self.led_state = self.get_parameter("led_state").value
 
         self.set_led_server = self.create_service(
             SetLED, "set_led", self.callback_set_led
