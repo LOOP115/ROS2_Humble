@@ -280,7 +280,7 @@ install(DIRECTORY
 * `cd launch`
 * `touch <app>.launch.py`
 * `chmod +x <app>.launch.py`
-* Template
+* [Template](src/my_robot_bringup/launch/template.launch.py)
 
 ```python
 from launch import LaunchDescription
