@@ -14,8 +14,8 @@ def generate_launch_description():
             Node(
                 package="my_py_pkg",
                 executable="robot_news_station",
-                remappings=[("__node", f"{name.lower()}_news_station")],
-                parameters=[{"name": name}],
+                name=f"{name.lower()}_news_station",
+                parameters=[{"name": name}]
             )
         )
 
