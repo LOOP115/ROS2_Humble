@@ -6,7 +6,7 @@ This repository contains summarised notes and code derived from ROS 2 tutorials.
 
 
 
-#### ROS 2 Official Websites
+### ROS 2 Official Websites
 
 [ROS Index](https://index.ros.org/)
 
@@ -20,13 +20,13 @@ This repository contains summarised notes and code derived from ROS 2 tutorials.
 
 
 
-#### ROS 2 Tutorial Notes
+### ROS 2 Tutorial Notes
 
 [ROS2 For Beginners](ros2_for_beginners.md)
 
 
 
-#### Packages
+### Packages
 
 [Basic ROS2 with Python](src/my_py_pkg)
 
