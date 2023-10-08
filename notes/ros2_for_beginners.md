@@ -24,7 +24,7 @@
 * `colcon build`
 * Run `source <workspace>/install/setup.bash` when starting a new terminal or add this line into `~/.bashrc`
 
-#### Create a Python Package
+#### Create a Python package
 
 * `cd src`
 * `ros2 pkg create <pkg> --build-type ament_python --dependencies rclpy`
@@ -238,7 +238,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 )
 ```
 
-#### CLI
+#### Interface CLI
 
 * List of interfaces: `ros2 interface list`
 * Show info of an interface: `ros2 interface show <interface>`
@@ -253,7 +253,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 * Settings for your nodes, value set at run time
 * A Parameter is specific to a node
 
-#### CLI
+#### Parameter CLI
 
 * List of parameters: `ros2 param list`
 * Get parameter value: `ros2 param get <node> <param>`
