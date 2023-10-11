@@ -7,6 +7,8 @@
 * Install Ubuntu 22.04
 * Install ROS2 Humble
   * [ROS 2 Documentation: Humble](https://docs.ros.org/en/humble/index.html)
+  * Add `source /opt/ros/humble/setup.bash` to `~/.bashrc`
+  * `pip install catkin_pkg empy lark pytest jinja2 pyaml typeguard`
 
 
 
@@ -49,6 +51,8 @@
 
 * Possible [solutions](https://answers.ros.org/question/396439/setuptoolsdeprecationwarning-setuppy-install-is-deprecated-use-build-and-pip-and-other-standards-based-tools/#400052) to the deprecation warning of `setup.py`
   * Downgrade the `setuptools` to `58.2.0` in `dist-packages`
+  * `sudo pip3 install --target=/usr/lib/python3/dist-packages setuptools==58.2.0 --upgrade`
+  * `pip install setuptools==58.2.0`
 
 
 #### RQt
