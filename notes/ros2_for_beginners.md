@@ -5,10 +5,12 @@
 ### Setup
 
 * Install Ubuntu 22.04
-* Install ROS2 Humble
-  * [ROS 2 Documentation: Humble](https://docs.ros.org/en/humble/index.html)
-  * Add `source /opt/ros/humble/setup.bash` to `~/.bashrc`
+* Install Python dependencies
   * `pip install catkin_pkg empy lark pytest jinja2 pyaml typeguard`
+* Install ROS2 Humble
+  * [ROS 2 Documentation: Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+  * Add `source /opt/ros/humble/setup.bash` to `~/.bashrc`
+  * To enable colourised output, add `export RCUTILS_COLORIZED_OUTPUT=1` to `~/.bashrc`
 
 
 
