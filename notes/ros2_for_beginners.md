@@ -209,7 +209,7 @@ if __name__ == "__main__":
 * `ros2 pkg create <interface_pkg>`
 * `cd <interface_pkg>`
 * `rm -rf include/ src/`
-* Add the following lines into [`package.xml`](src/my_robot_interfaces/package.xml)
+* Add the following lines into [`package.xml`](../src/my_robot_interfaces/package.xml)
 
 ```xml
   <build_depend>rosidl_default_generators</build_depend>
@@ -217,7 +217,7 @@ if __name__ == "__main__":
   <member_of_group>rosidl_interface_packages</member_of_group>
 ```
 
-* Add the following line into [`CMakeLists.txt`](src/my_robot_interfaces/CMakeLists.txt)
+* Add the following line into [`CMakeLists.txt`](../src/my_robot_interfaces/CMakeLists.txt)
 
 ```cmake
 find_package(rosidl_default_generators REQUIRED)
@@ -232,7 +232,7 @@ find_package(rosidl_default_generators REQUIRED)
 * `touch <msg>.msg` or `touch <srv>.srv`
   * Uppercase first letter
   * Camel case
-* Add the following lines into [`CMakeLists.txt`](src/my_robot_interfaces/CMakeLists.txt)
+* Add the following lines into [`CMakeLists.txt`](../src/my_robot_interfaces/CMakeLists.txt)
 
 ```cmake
 find_package(rosidl_default_generators REQUIRED)
@@ -275,7 +275,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 * `ros2 pkg create <robot>_bringup`
 * `rm -rf include/ src/`
 * `mkdir launch`
-* Add the following lines into [`CMakeLists.txt`](src/my_robot_bringup/CMakeLists.txt)
+* Add the following lines into [`CMakeLists.txt`](../src/my_robot_bringup/CMakeLists.txt)
 
 ```cmake
 install(DIRECTORY
@@ -301,7 +301,7 @@ def generate_launch_description():
     return ld
 ```
 
-* Add depended packages in [`package.xml`](src/my_robot_bringup/package.xml)
+* Add depended packages in [`package.xml`](../src/my_robot_bringup/package.xml)
 
 ```xml
 <exec_depend>pkg</exec_depend>

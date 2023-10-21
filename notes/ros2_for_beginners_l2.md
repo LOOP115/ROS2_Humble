@@ -50,9 +50,10 @@ In ROS 2, a transform is a fundamental concept used for representing the relatio
 
 #### Visualise a robot TFs in RViz 2 (`urdf_tutorial`)
 
-* `cd /opt/ros/humble/share/urdf_tutorial/urdf/`
-
-* `ros2 launch urdf_tutorial display.launch.py model:=08-macroed.urdf.xacro`
+```
+ros2 launch urdf_tutorial display.launch.py model:=<model_absolute_path>
+ros2 launch urdf_tutorial display.launch.py model:=/opt/ros/humble/share/urdf_tutorial/urdf/08-macroed.urdf.xacro
+```
 
 #### Visualise the TF tree
 
@@ -69,4 +70,39 @@ In ROS 2, a transform is a fundamental concept used for representing the relatio
 * Used to generate TFs
 * XML format
 * Visualise the robot on RViz
+* XYZ rotation: roll pitch yaw (rpy)
+
+#### Documentation
+
+[URDF Joint](https://wiki.ros.org/urdf/XML/joint)
+
+[URDF Link](https://wiki.ros.org/urdf/XML/link)
+
+#### How the Robot State Publisher and URDF Work Together
+
+![1](img/1.png)
+
+**Example**
+
+* `ros2 run robot_state_publisher robot_state_publisher --ros-args -p robot_description:="$(xacro my_robot.urdf)"`
+* `ros2 run joint_state_publisher_gui joint_state_publisher_gui`
+* `ros2 run rviz2 rviz2`
+
+#### Create a Robot Description Package to Install the URDF
+
+* `cd <workspace>/src`
+* `ros2 pkg create <robot>_description`
+* `cd <robot>_description`
+* `rm -rf include/ src/`
+* `mkdir urdf`
+* Add following lines into [`CMakeLists.txt`](../src/my_robot_description/CMakeLists.txt)
+
+```cmake
+install(
+  DIRECTORY urdf
+  DESTINATION share/${PROJECT_NAME}/
+)
+```
+
+* Enter into the workspace and run `colcon build`
 
