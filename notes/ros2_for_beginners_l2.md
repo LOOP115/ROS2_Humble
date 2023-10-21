@@ -106,3 +106,21 @@ install(
 
 * Enter into the workspace and run `colcon build`
 
+#### Add an RViz config in the Launch File:
+
+1. From RViz, save a config with `.rviz` extension
+2. In the package, add a `rviz/` folder. Put the `.rviz` file in the folder, install the folder
+3. In the launch file, make RViz start with this config
+   - for XML: add `args=<config>` in the node tag
+   - for python, add `arguments=[list of arguments]` in the node structure
+
+
+
+### Xacro
+
+Make the URDF cleaner, more dynamic, modular, scalable
+
+* Properties (variables)
+* Macros (functions)
+* Include URDF file inside another URDF
+
