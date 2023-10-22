@@ -124,3 +124,8 @@ Make the URDF cleaner, more dynamic, modular, scalable
 * Macros (functions)
 * Include URDF file inside another URDF
 
+
+
+### Gazebo
+
+![2](img/2.png)
