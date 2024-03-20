@@ -1,6 +1,6 @@
 # [ROS2 For Beginners](https://www.udemy.com/course/ros2-for-beginners/)
 
-
+<br>
 
 ### Setup
 
@@ -12,7 +12,7 @@
   * Add `source /opt/ros/humble/setup.bash` to `~/.bashrc`
   * To enable colourised output, add `export RCUTILS_COLORIZED_OUTPUT=1` to `~/.bashrc`
 
-
+<br>
 
 ### Workspace and Package
 
@@ -35,7 +35,7 @@
 * Add dependencies in `package.xml`
 * `cd .. && colcon build`
 
-
+<br>
 
 ### ROS2 Tools
 
@@ -63,7 +63,7 @@
 
 * `rqt_graph`
 
-
+<br>
 
 ### ROS2 Nodes
 
@@ -139,7 +139,7 @@ if __name__ == "__main__":
     main()
 ```
 
-
+<br>
 
 ### ROS2 Topics
 
@@ -167,7 +167,7 @@ if __name__ == "__main__":
 * Bandwidth: `ros2 topic bw <topic>`
 * Remap a topic: `ros2 run <pkg> <node> --ros-args -r <topic>:=<new_topic>`
 
-
+<br>
 
 ### ROS2 Services
 
@@ -192,7 +192,7 @@ if __name__ == "__main__":
 * Remap a service: `ros2 run <pkg> <node> --ros-args -r <service>:=<new_service>`
 * Use RQt plugins to call the service
 
-
+<br>
 
 ### ROS2 Interfaces
 
@@ -250,7 +250,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 * Show info of an interface: `ros2 interface show <interface>`
 * Show interfaces in the package: `ros2 interface package <pkg>`
 
-
+<br>
 
 ### ROS2 Parameters
 
@@ -265,7 +265,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 * Get parameter value: `ros2 param get <node> <param>`
 * Declare the parameter: `ros2 run <pkg> <node> --ros-args -p <param>:=<value>`
 
-
+<br>
 
 ### ROS2 Launch Files
 
@@ -309,7 +309,7 @@ def generate_launch_description():
 
 * Launch: `ros2 launch <robot>_bringup <app>.launch.py`
 
-
+<br>
 
 ### ROS2 Bags
 
@@ -324,4 +324,3 @@ In ROS 2, a "bag" is a file format and tool for recording, storing, and playing 
 * Record all topics: `ros2 bag record -a -o <bag>`
 * Info of a bag: `ros2 bag info <bag>`
 * Play a bag: `ros2 bag play <bag>`
-
