@@ -1,10 +1,7 @@
 # ROS 2 Humble Study
-
-
-
 This repository contains summarised notes and code derived from ROS 2 tutorials.
 
-
+<br>
 
 ## ROS 2 Official Websites
 
@@ -18,15 +15,15 @@ This repository contains summarised notes and code derived from ROS 2 tutorials.
 
 [ROS 2 GitHub](https://github.com/ros2)
 
+<br>
 
-
-## ROS 2 Tutorial Notes
+## ROS 2 Tutorials
 
 [ROS2 For Beginners](notes/ros2_for_beginners.md)
 
 [ROS2 For Beginners Level 2 - TF | URDF | RViz | Gazebo](notes/ros2_for_beginners_l2.md)
 
-
+<br>
 
 ## Packages
 
@@ -45,6 +42,3 @@ This repository contains summarised notes and code derived from ROS 2 tutorials.
 [Customised Interfaces](src/my_robot_interfaces)
 
 [Launch Files](src/my_robot_bringup)
-
-#### ROS2 For Beginners Level 2
-
