@@ -1,6 +1,6 @@
 # [ROS2 For Beginners Level 2](https://www.udemy.com/course/ros2-tf-urdf-rviz-gazebo/)
 
-
+<br>
 
 ### Setup
 
@@ -12,7 +12,7 @@
   * Location: `/opt/ros/humble/share/urdf_tutorial/urdf/`
 * Install `tf2-tools`: `sudo apt install ros-humble-tf2-tools`
 
-
+<br>
 
 ### RViz
 
@@ -22,7 +22,7 @@ RViz is a powerful 3D visualisation tool for ROS. It allows users to visualise d
 
 * Links: Rigid parts of the robot
 
-
+<br>
 
 ### TF (TransFrom)
 
@@ -60,7 +60,7 @@ ros2 launch urdf_tutorial display.launch.py model:=/opt/ros/humble/share/urdf_tu
 * `ros2 run tf2_tools view_frames`
 * `frames.pdf` is stored at the current directory
 
-
+<br>
 
 ### URDF (Unified Robot Description Format)
 
@@ -114,7 +114,7 @@ install(
    - for XML: add `args=<config>` in the node tag
    - for python, add `arguments=[list of arguments]` in the node structure
 
-
+<br>
 
 ### Xacro
 
@@ -124,7 +124,7 @@ Make the URDF cleaner, more dynamic, modular, scalable
 * Macros (functions)
 * Include URDF file inside another URDF
 
-
+<br>
 
 ### Gazebo
 
