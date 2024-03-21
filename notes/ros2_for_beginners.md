@@ -79,7 +79,7 @@
 
 #### Create a node
 
-* `cd ~/<workspace>/src/<pke>/<pkg>`
+* `cd ~/<workspace>/src/<pkg>/<pkg>`
 * `touch <node>.py`
 * `chmod +x <node>.py`
 
